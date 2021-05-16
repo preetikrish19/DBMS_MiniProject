@@ -2,7 +2,7 @@
   session_start();
     include("db.php");
     $did = 1;
-    $sql = "SELECT * FROM mentordetails WHERE domain='$did'";
+    $sql = "SELECT * FROM mentordetails WHERE domain='$did' AND display=1";
     $result = mysqli_query($con, $sql);
     $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
     //print_r($details);

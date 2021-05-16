@@ -176,18 +176,36 @@
           <input type="password" placeholder="Password" class="form-control" name="password" required><br/>
           <input type="number" min="1" max="4" placeholder="Year" name="year" class="form-control" required><br />
           <label for="domain" class="form-control">Please select your domain</label>
-          <input type="radio" name="domain" value="1" class="">
+
+          <input type="hidden" name="domain" value="0">
+          <input type="checkbox" name="domain" value="1" class="">
           <label for="DSA">DSA</label><br>
-          <input type="radio" name="domain" value="2" class="">
+
+          <input type="hidden" name="choice2" value="0">
+          <input type="checkbox" name="choice2" value="2" class="">
           <label for="c">C programming</label><br>
-          <input type="radio" name="domain" value="3" class="">
+
+          <input type="hidden" name="choice3" value="0">
+          <input type="checkbox" name="choice3" value="3" class="">
           <label for="dbms">DBMS</label><br>
-          <input type="radio" name="domain" value="4" class="">
+
+          <input type="hidden" name="choice4" value="0">
+          <input type="checkbox" name="choice4" value="4" class="">
           <label for="os">OS</label><br>
-          <input type="radio" name="domain" value="5" class="">
+
+          <input type="hidden" name="choice5" value="0">
+          <input type="checkbox" name="choice5" value="5" class="">
+          <label for="os"></label>C++<br>
+
+          <input type="hidden" name="choice6" value="0">
+          <input type="checkbox" name="choice6" value="6" class="">
+          <label for="os"></label>Python<br>
+          <!--
+          <input type="checkbox" name="domain" value="5" class="">
           <label for="c++">C++</label><br>
-          <input type="radio" name="domain" value="6" class="">
+          <input type="checkbox" name="domain" value="6" class="">
           <label for="python">Python</label><br>
+          -->
           <textarea class="form-control" rows="5" cols="80" placeholder="Acheivements Description" name="description" required></textarea><br>
           <button type="submit" class="btn btn-primary">Submit</button>
           <div id="result1"></div>
