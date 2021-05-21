@@ -6,6 +6,9 @@ session_start();
     $password = $con->real_escape_string($_POST['password']);
     $sql= "SELECT * FROM enrolldetails WHERE email='$email' AND password='$password'";
     $result= $con->query($sql);
+    $details = mysqli_fetch_array($result, MYSQLI_BOTH);
+    $_SESSION['uid'] = $details['uid'];
+    //echo $_SESSION['uid'];
     $count = $result->num_rows;
     if($count == 1){
       $_SESSION["email"] = $email ;

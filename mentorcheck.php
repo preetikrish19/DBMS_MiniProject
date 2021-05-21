@@ -6,6 +6,9 @@ session_start();
     $password = $con->real_escape_string($_POST['password']);
     $sql1= "SELECT * FROM mentordetails WHERE email='$email' AND password='$password'";
     $result= $con->query($sql1);
+    $details = mysqli_fetch_array($result, MYSQLI_BOTH);
+    $_SESSION['mid'] = $details['mid'];
+    //echo $_SESSION['mid'];
     $count = $result->num_rows;
     if($count == 1){
       $_SESSION["email"] = $email ;
