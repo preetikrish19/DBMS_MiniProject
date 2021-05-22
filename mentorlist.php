@@ -43,6 +43,21 @@ else{
     text-align: center;
   }
 </style>
+<script>
+  $(document).ready(function(){
+    $("form").on("submit", function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("addmsg.php", formValues, function(data){
+                // Display the returned data in browser
+                $("#result").html(data);
+            });
+    });
+  });
+</script>
   <body>
   <div class="container" style="margin-top:10px">
 <h1 class = "text-white" style = "text-align:center">Our Mentors</h2>
@@ -64,37 +79,70 @@ else{
       <li><a href="#" class="fa fa-linkedin"></a></li>
       </ul>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  CHAT
-</button>
+    <button onclick="view(<?php echo $row['mid'];?>)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">CHAT</button>
       <a href="#" class="btn btn-primary">FOLLOW</a>
     </div>
   </div>
   </div>
-  <?php
-    }
-?>
-</div>
-</div>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+      <h5 class="modal-title" id="exampleModalLongTitle"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <div id="result2"></div>
+      
+      <!--
+        <form>
+          <input type="hidden" name="mid" value="<?php echo $row['mid'];?>">
+          <div class="form-group">
+            <textarea name="msg" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          </div>
+          <button type="submit" name='submit' class="btn btn-dark">SEND</button>
+        </form>
+        -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+  <?php
+    }
+?>
+</div>
+</div>
+
+<script>
+    function view(id, email){
+        //var id = document.getElementsByClassName('view');
+        console.log(id);
+        //console.log(email);
+        var arr = {
+            mentor_id: id,
+            mentor_email: email
+        };
+        $.ajax({
+                method: "post",
+                url: "displaychat.php",
+                data: arr,
+                datatype: "html",
+                success: function(response) {
+                    $('#result2').html(response);
+                }
+            });
+        //alert("heyy");
+    }
+
+</script>
+
 </body>
 </html>
 <?php

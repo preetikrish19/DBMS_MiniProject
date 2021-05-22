@@ -11,7 +11,7 @@ session_start();
     //echo $_SESSION['mid'];
     $count = $result->num_rows;
     if($count == 1){
-      $_SESSION["email"] = $email ;
+      $_SESSION["mentor_email"] = $email;
       $_SESSION['login'] = 1;
       echo "<script>window.location.href='index.php'</script>";
     }
