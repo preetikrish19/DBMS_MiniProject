@@ -32,8 +32,13 @@ body {
     <div class="card-body">
       <h4 class="card-title">C++ Programming</h4>
       <a href="cplusplus.php" class="btn btn-primary">Know more!</a>
+      <form action="addfollow.php" method="post">
+      <input type="hidden" name="op" value="5">
+      <input class="btn btn-primary" style="background-color:green;"
+       type="submit" value="+ Follow" onclick="return change(this);" />
+      </form>
+      </div>
     </div>
-  </div>
   </div>
 
   <div class="col-sm-4">
@@ -42,6 +47,10 @@ body {
     <div class="card-body">
       <h4 class="card-title">DSA</h4>
       <a href="dsa.php" class="btn btn-primary">Know more!</a>
+      <form action="addfollow.php" method="post">
+      <input type="hidden" name="op" value="1">
+      <input class="btn btn-primary" style="background-color:green;" type="submit"  value="+ Follow" onclick="return change(this);" />
+      </form>
     </div>
   </div>
   </div>
@@ -52,6 +61,11 @@ body {
     <div class="card-body">
       <h4 class="card-title">DBMS</h4>
       <a href="dbms.php" class="btn btn-primary">Know more!</a>
+      <form action="addfollow.php" method="post">
+      <input type="hidden" name="op" value="3" onclick="return ch(this);">
+      <input class="btn btn-primary" style="background-color:green;" 
+      type="submit" value="+ Follow" onclick="return change(this);" />
+    </form>
     </div>
   </div>
   </div>
@@ -66,6 +80,10 @@ body {
     <div class="card-body">
       <h4 class="card-title">PYTHON</h4>
       <a href="python.php" class="btn btn-primary">Know more!</a>
+      <form action="addfollow.php" method="post">
+      <input type="hidden" name="op" value="6">
+      <input class="btn btn-primary" style="background-color:green;" type="submit" value="+ Follow" onclick="return change(this);" />
+    </form>
     </div>
   </div>
   </div>
@@ -76,6 +94,11 @@ body {
     <div class="card-body">
       <h4 class="card-title">C programming</h4>
       <a href="cprogramming.php" class="btn btn-primary">Know more!</a>
+      <form action="addfollow.php" method="post">
+      <input type="hidden" name="op" value="2">
+      <input class="btn btn-primary" style="background-color:green;"
+       type="submit"  value="+ Follow" onclick="return change(this);" />
+    </form>
     </div>
   </div>
   </div>
@@ -86,12 +109,36 @@ body {
     <div class="card-body">
       <h4 class="card-title">Operating Systems</h4>
       <a href="os.php" class="btn btn-primary">Know more!</a>
+      <form action="addfollow.php" method="post">
+      <input type="hidden" name="op" value="4">
+      <input class="btn btn-primary" style="background-color:green;"
+       type="submit" value="+ Follow" onclick="return change(this);" />
+      </form>
     </div>
+    
   </div>
   </div>
 
 </div>
-<br><br>
+<br>
+<br>
 </div>
+<script type="text/javascript">
+function change( el )
+{
+    if ( el.value === "+ Follow" )
+        el.value = "Unfollow";
+    else
+        el.value = "+ Follow";
+}
+function ch(op)
+{
+  if(op==1)
+  op.value=0;
+  else 
+  op.value=1;
+  return op.value;
+}
+</script>
 </body>
 </html>
