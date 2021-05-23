@@ -167,7 +167,7 @@ if($_SESSION['login'] == 0){
       <a class="nav-link" href="domain.php">Domains</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Post</a>
+      <a class="nav-link" href="post.php">Post</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="index.php#footer">Contact</a>
