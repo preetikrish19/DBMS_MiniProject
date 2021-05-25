@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "db.php";
-
 $sql1="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
 INNER JOIN follow
 ON mentordetails.mid = follow.mid
