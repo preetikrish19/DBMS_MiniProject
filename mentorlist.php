@@ -1,20 +1,20 @@
 <?php
 session_start();
 include "db.php";
-$query = "SELECT * FROM mentordetails WHERE display = 1";
-$q="SELECT * FROM follow where uid=$_SESSION[uid]";
-mysqli_query($con, $q);
-//while($rs = mysqli_fetch_assoc($q)){
-//$mid=$rs['mid'];
-//$uid=$rs['uid'];
-//}
-echo $_SESSION['login'];
-   if(!($result = $con->query($query)))
-{
-    die($con->error);
+$sql1="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
+INNER JOIN follow
+ON mentordetails.mid = follow.mid
+where follow.uid=$_SESSION[uid] AND display=1";
+$sql2="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
+LEFT JOIN follow ON mentordetails.mid= follow.mid
+WHERE follow.mid IS NULL";
+$result1 = $con->query($sql1);
+$result2 = $con->query($sql2);
+if(!($result2= $con->query($sql2))){ 
+  die($con->error);
 }
-else{
-?>
+else {
+   ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +29,8 @@ else{
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel = "stylesheet" href = "styleindex.css">
-  
-  
+
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  
   
   <style>
   body {
@@ -58,14 +56,13 @@ else{
     text-align: center;
   }
 </style>
+
 <script>
   $(document).ready(function(){
     $("form").on("submit", function(event){
             event.preventDefault();
-
             var formValues= $(this).serialize();
             console.log(formValues);
-
             $.post("addmsg.php", formValues, function(data){
                 // Display the returned data in browser
                 $("#result").html(data);
@@ -73,13 +70,14 @@ else{
     });
   });
 </script>
+
 <body>
  <div class="container" style="margin-top:10px">
    <h1 class = "text-white" style = "text-align:center">Our Mentors</h2>
     <div class="row">
    <?php
    $no=1;
-   while($row = mysqli_fetch_assoc($result)){
+   while($row = mysqli_fetch_assoc($result1)){
    ?>
     <div class="col-sm-4">
       <div class="card" style="width:340px">
@@ -98,10 +96,12 @@ else{
         <button onclick="view(<?php echo $row['mid'];?>)" type="button"
         class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">CHAT</button>
         <form action="mentorfollow.php" id="ifm" method="post">
-        <input type = "hidden" name ="uid" id="uid<?php echo $no;?>" value = "<?php echo $_SESSION['uid'];?>">
-        <input type = "hidden"name="mid" id="mid<?php echo $no;?>" value="<?php echo $row['mid'];?>">
-        <button type="submit" name="op" onclick = "change11(<?php echo $no; ?>); cc(<?php echo $no; ?>);"
-        id = "btnclick<?php echo $no;?>" class="btn btn-primary" style="background-color:green;" value = "1">+ Follow</button>
+        <input type = "hidden" name ="uid1" id="uid1<?php echo $no;?>" value = "<?php echo $_SESSION['uid'];?>">
+        <input type = "hidden" name="mid1" id="mid1<?php echo $no;?>" value="<?php echo $row['mmid'];?>">        
+       <button type="submit" name="op1"
+        onclick = "cc1(<?php echo $no; ?>); change11(<?php echo $no; ?>); "
+        id = "btnclick1<?php echo $no;?>" class="btn btn-primary" 
+        style="background-color:green;" value = "0">Unfollow</button>
         </form>
       </div>
     </div>
@@ -120,13 +120,14 @@ else{
       
       <!--
         <form>
-          <input type="hidden" name="mid" value="<?php echo $row['mid'];?>">
+          <input type="hidden" name="mid" value="<?php echo $row['mmid'];?>">
           <div class="form-group">
             <textarea name="msg" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
           </div>
           <button type="submit" name='submit' class="btn btn-dark">SEND</button>
         </form>
         -->
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -138,6 +139,73 @@ else{
   <?php
     }
 ?>
+
+<!--</div>-->
+<!--<div class="row">-->
+   <?php
+   $no=100;
+   while($row = mysqli_fetch_assoc($result2)){
+   ?>
+    <div class="col-sm-4">
+      <div class="card" style="width:340px">
+      <img class="card-img-top" src="images/person.png" alt="Card image" style="width:100%">
+       <div class="card-body">
+        <h4 class="card-title"><?php echo $row['name'];?></h4>
+        <p class="card-text"><?php echo $row['description'];?></p>
+        <div class="dabba">
+        <ul>
+        <li><a href= '#' class="fa fa-facebook"></a></li>
+        <li><a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="#" class="fa fa-twitter"></a></li>
+        <li><a href="#" class="fa fa-linkedin"></a></li>
+        </ul>
+        </div>
+        <button onclick="view(<?php echo $row['mid'];?>)" type="button"
+        class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">CHAT</button>
+        <form action="mentorfollow1.php" id="ifm" method="post">
+        <input type = "hidden" name ="uid2" id="uid2<?php echo $no;?>" value = "<?php echo $_SESSION['uid'];?>">
+        <input type = "hidden" name="mid2" id="mid2<?php echo $no;?>" value="<?php echo $row['mmid'];?>">
+       <button type="submit" name="op2"
+        onclick = "cc2(<?php echo $no; ?>);change22(<?php echo $no; ?>);  "
+        id = "btnclick2<?php echo $no;?>" class="btn btn-primary" 
+        style="background-color:green;" value = "1">+ Follow</button>
+        </form>
+      </div>
+    </div>
+  <?php $no++;?>
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+           </button>
+      </div>
+           <div class="modal-body">
+             <div id="result2"></div>
+      <!--
+        <form>
+          <input type="hidden" name="mid" value="<?php echo $row['mmid'];?>">
+          <div class="form-group">
+            <textarea name="msg" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          </div>
+          <button type="submit" name='submit' class="btn btn-dark">SEND</button>
+        </form>
+        -->
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  <?php
+    }
+?>
+</div>
 </div>
 </div>
 
@@ -160,73 +228,85 @@ else{
                 }
             });
         //alert("heyy");
-    }
-   
-   
-   
-   
-   
-   
-   // $(function() { 
-  //alert("aaaaaaa");
-  //newc();
-//});
- /*function newc() { 
-  var no=1;
-  while($row = mysqli_fetch_assoc($result)){
-     while($rs = mysqli_fetch_assoc($q)){
-        var a="<?php //echo $uid=$rs['uid']; ?>";
-        var b="<?php //echo $mid=$rs['mid']; ?>";
-        var a1=document.getElementById('uid'+ no).value;
-        var b1=document.getElementById('mid'+ no).value;
-        alert(a);
-        alert(b);
-        alert(a1);
-        alert(b1);
-   if ( a === a1 || b=== b1 )
-        s11 = "+ Follow";
-    else
-        s11= "unfollow";
-    document.getElementById('btnclick'+no).innerHTML=s11;
-     no++;
-     }
-  }
-  }*/
+                    }
 
-
-
-
-
-  
 function change11(no) 
 {
-    var m = document.getElementById('btnclick' + no).innerHTML;
-    if ( m=== "+ Follow")
+    var m1= document.getElementById('btnclick1' + no).innerHTML;
+    if( m1=== "+ Follow")
         {
-           m= "Unfollow";
-           mm = 0;
+           m1= "Unfollow";
+        }
+            else
+        {
+          m1= "+ Follow";
+        }
+        if ( m1=== "+ Follow")
+        {
+           mm1=1;
           }
             else
         {
-          m= "+ Follow";
-          mm = 1;
+          mm1=0;
         }
-   document.getElementById('btnclick' + no).innerHTML = m;
-   document.getElementById('btnclick' + no).value= mm;
-};
-        function cc(no){
-        var op=document.getElementById('btnclick' + no).value;
-        var uidd=document.getElementById('uid'+ no).value;
-        var midd=document.getElementById('mid'+ no).value;
-        var ar = {
-            mid: midd,
-            uid: uidd,
-            op:op,
+        document.getElementById('btnclick1' + no).innerHTML=m1;
+   document.getElementById('btnclick1' + no).value= mm1;
+   }
+   function change22(no) 
+{
+    var m2 = document.getElementById('btnclick2' + no).innerHTML;
+    if( m2=== "+ Follow")
+        {
+           m2= "Unfollow";
+        }
+            else
+        {
+          m2= "+ Follow";
+        }
+        if ( m2=== "+ Follow")
+        {
+           mm2=1;
+          }
+            else
+        {
+          mm2=0;
+        }
+        document.getElementById('btnclick2' + no).innerHTML=m2;
+   document.getElementById('btnclick2' + no).value= mm2;
+   }
+
+  function cc2(no) {
+        var op2=document.getElementById('btnclick2' + no).value;
+        var uidd2=document.getElementById('uid2'+ no).value;
+        var midd2=document.getElementById('mid2'+ no).value;
+        var ar2 = {
+            mid2: midd2,
+            uid2: uidd2,
+            op2:op2,
+            };
+        $.ajax({
+                method: "post",
+                url: "mentorfollow1.php",
+                data: ar2,
+                datatype: "html",
+                success: function(response) {
+                    $('#res2').html(response);
+                }
+            });
+      }
+    function cc1(no) {
+        var op1=document.getElementById('btnclick1' + no).value;
+        var uidd1=document.getElementById('uid1'+ no).value;
+        var midd1=document.getElementById('mid1'+ no).value;
+        var ar1 = {
+            mid1: midd1,
+            uid1: uidd1,
+            op1:op1,
             };
         $.ajax({
                 method: "post",
                 url: "mentorfollow.php",
-                data: ar,
+                data: ar1,
                 datatype: "html",
                 success: function(response) {
                     $('#res2').html(response);
