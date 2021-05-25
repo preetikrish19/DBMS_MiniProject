@@ -148,14 +148,16 @@ if($_SESSION['login'] == 0){
   <div class="collapse navbar-collapse" id="collapsibleNavbar" class = "navbar justify-content-end">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Home</a>
+      <a class="nav-link active" href="#">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#about">About</a>
     </li>
+    <!--
     <li class="nav-item">
       <a class="nav-link" href="mentorlist.php">Find a mentor</a>
     </li>
+    -->
     <!--
     <li class="nav-item">
       <a class="nav-link" href="mentorlogin.php">Be a mentor</a>
@@ -163,6 +165,16 @@ if($_SESSION['login'] == 0){
     <li class="nav-item">
       <a class="nav-link" href="enroll.php">Enroll</a>
     </li>-->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Messages
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item bg-dark active" href="messages.php" style="color: white">Follow</a>
+          <div class="dropdown-divider bg-light"></div>
+          <a class="dropdown-item bg-dark" href="unfollowchat.php" style="color: white">Unfollow</a>
+        </div>
+      </li>
     <li class="nav-item">
       <a class="nav-link" href="domain.php">Domains</a>
     </li>
@@ -297,7 +309,7 @@ if($_SESSION['login'] == 0){
    </div>
  </nav>
 
- <body>
+ <body class = "bg-dark">
 
  <div id="demo" class="carousel slide" data-ride="carousel">
    <ul class="carousel-indicators">
