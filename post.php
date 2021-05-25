@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php
-=======
 <?php 
->>>>>>> 489a6705d2b904a11bb84e9512d0647648efee9f
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,13 +9,7 @@ session_start();
 <label for="mid"></label>
 <input type="hidden" name="mid" value="<?php echo $_SESSION['mid'];?>" >
 <br>
-<<<<<<< HEAD
-<label for="domains">Choose the domain</label>
-=======
-<input type="hidden" name="Mid" value="<?php echo $_SESSION['mid'];?>">
-<br>
 <label for="cars">Choose the domain</label>
->>>>>>> 489a6705d2b904a11bb84e9512d0647648efee9f
 <select id="domains" name="Domains">
   <option value="2">C</option>
   <option value="5">C++</option>
@@ -63,4 +53,4 @@ session_start();
 </form>
 
 </body>
-</html>0
+</html>
