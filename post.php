@@ -1,21 +1,25 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <body>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
-<label for="fname">Mentor Name:</label>
-<input type="text" id="fname" name="fname">
+<label for="mid"></label>
+<input type="hidden" name="mid" value="<?php echo $_SESSION['mid'];?>" >
 <br>
-<label for="Mid">Mentor Id:</label>
-<input type="text" id="Mid" name="Mid">
-<br>
-<label for="cars">Choose the domain</label>
+<label for="domains">Choose the domain</label>
 <select id="domains" name="Domains">
-  <option value="C">C</option>
-  <option value="C++">C++</option>
-  <option value="PYTHON">PYTHON</option>
-  <option value="OS">OS</option>
+  <option value="2">C</option>
+  <option value="5">C++</option>
+  <option value="6">PYTHON</option>
+  <option value="4">OS</option>
+  <option value="3">DBMS</option>
+  <option value="1">DSA</option>
 </select>
+<br>
+<textarea class="form-control" rows="5" cols="80" placeholder="Post Description" name="post_description" required></textarea>
 <br>
 <form action="upload.php" method="post" enctype="multipart/form-data">
 
@@ -23,7 +27,7 @@
 
 <br />
 
-<input type="submit" value="Post" />
+<input type="submit" value="Post"/>
 
 </form>
   <!--Select image to upload:
@@ -49,4 +53,4 @@
 </form>
 
 </body>
-</html>
+</html>0
