@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <body>
@@ -6,8 +9,7 @@
 <label for="fname">Mentor Name:</label>
 <input type="text" id="fname" name="fname">
 <br>
-<label for="Mid">Mentor Id:</label>
-<input type="text" id="Mid" name="Mid">
+<input type="hidden" name="Mid" value="<?php echo $_SESSION['mid'];?>">
 <br>
 <label for="cars">Choose the domain</label>
 <select id="domains" name="Domains">

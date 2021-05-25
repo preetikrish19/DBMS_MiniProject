@@ -12,7 +12,7 @@ session_start();
     $count = $result->num_rows;
     if($count == 1){
       $_SESSION['student_email'] = $email;
-      $_SESSION['login'] = 1;
+      $_SESSION['login'] = 0;
       echo "<script>window.location.href='index.php'</script>";
     }
     else {
