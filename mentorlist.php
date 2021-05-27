@@ -1,20 +1,21 @@
 <?php
 session_start();
 include "db.php";
-$sql1="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
-INNER JOIN follow
-ON mentordetails.mid = follow.mid
-where follow.uid=$_SESSION[uid] AND display=1";
-$sql2="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
-LEFT JOIN follow ON mentordetails.mid= follow.mid
-WHERE follow.mid IS NULL";
-$result1 = $con->query($sql1);
+//$sql1="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
+//INNER JOIN follow ON mentordetails.mid = follow.mid where follow.uid=$_SESSION[uid] AND display=1";
+//$sql2="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
+//LEFT JOIN follow ON mentordetails.mid= follow.mid WHERE follow.uid IS NULL";
+$sql1="SELECT mentordetails.mid AS mmid,mentordetails.description,mentordetails.name FROM mentordetails
+WHERE mentordetails.mid IN (SELECT mid FROM follow WHERE uid=$_SESSION[uid])";
+$sql2="SELECT mentordetails.mid AS mmid,mentordetails.description,mentordetails.name FROM mentordetails
+WHERE mentordetails.mid NOT IN (SELECT mid FROM follow WHERE uid=$_SESSION[uid])";
 $result2 = $con->query($sql2);
+$result1 = $con->query($sql1);
 if(!($result2= $con->query($sql2))){ 
   die($con->error);
-}
-else {
-   ?>
+    }
+  else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
