@@ -72,6 +72,9 @@ echo "  ";
       <a class="nav-link" href="domain.php">Domains</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="publicforum.php">Public Forum</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="index.php#footer">Contact</a>
     </li>
     <li class="nav-item">

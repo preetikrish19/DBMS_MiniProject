@@ -5,7 +5,7 @@ if(isset($_SESSION['login'])){
 //echo $_SESSION['mid'];
 include('db.php');
 $i=1;
-$sql = "SELECT DISTINCT enrolldetails.uid, enrolldetails.name, enrolldetails.year, enrolldetails.email FROM enrolldetails INNER JOIN chat ON chat.student_id=enrolldetails.uid  WHERE enrolldetails.uid NOT IN( SELECT DISTINCT f.uid FROM follow f WHERE f.mid=$_SESSION[mid])";
+$sql = "SELECT DISTINCT enrolldetails.uid, enrolldetails.name, enrolldetails.year, enrolldetails.email FROM enrolldetails INNER JOIN chat ON chat.student_id=enrolldetails.uid  WHERE enrolldetails.uid NOT IN( SELECT DISTINCT f.uid FROM follow f WHERE f.mid=$_SESSION[mid]) AND chat.mentor_id=$_SESSION[mid]";
 
 //$sql = "SELECT chatfollow.uid, enrolldetails.name, enrolldetails.email, enrolldetails.year FROM chatfollow INNER JOIN enrolldetails ON chatfollow.uid=enrolldetails.uid WHERE chat.mentor_id=3";
 
@@ -71,6 +71,9 @@ $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
       </li>
     <li class="nav-item">
       <a class="nav-link" href="domain.php">Domains</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="publicforum.php">Public Forum</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="index.php#footer">Contact</a>

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] ==="POST")
     $op1=$_POST['op1'];
     if($op1==1)
        {
-          $query="INSERT INTO follow (mid,uid) VALUES ('$mid1','$uid1')";  
+          $query="INSERT INTO follow (mid,uid) VALUES ('$mid1','$uid1')";
        }
     if($op1==0) 
        {
