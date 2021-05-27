@@ -93,16 +93,16 @@ else {
         <li><a href="#" class="fa fa-linkedin"></a></li>
         </ul>
         </div>
-        <button onclick="view(<?php echo $row['mid'];?>)" type="button"
+        <button onclick="view(<?php echo $row['mmid'];?>)" type="button"
         class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">CHAT</button>
-        <form action="mentorfollow.php" id="ifm" method="post">
+        <!--<form action="mentorfollow.php" id="ifm1" method="post">-->
         <input type = "hidden" name ="uid1" id="uid1<?php echo $no;?>" value = "<?php echo $_SESSION['uid'];?>">
         <input type = "hidden" name="mid1" id="mid1<?php echo $no;?>" value="<?php echo $row['mmid'];?>">        
        <button type="submit" name="op1"
         onclick = "cc1(<?php echo $no; ?>); change11(<?php echo $no; ?>); "
         id = "btnclick1<?php echo $no;?>" class="btn btn-primary" 
         style="background-color:green;" value = "0">Unfollow</button>
-        </form>
+       <!-- </form>-->
       </div>
     </div>
   <?php $no++;?>
@@ -160,16 +160,16 @@ else {
         <li><a href="#" class="fa fa-linkedin"></a></li>
         </ul>
         </div>
-        <button onclick="view(<?php echo $row['mid'];?>)" type="button"
+        <button onclick="view(<?php echo $row['mmid'];?>)" type="button"
         class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">CHAT</button>
-        <form action="mentorfollow1.php" id="ifm" method="post">
+        <!--<form action="mentorfollow1.php" id="ifm2" method="post">-->
         <input type = "hidden" name ="uid2" id="uid2<?php echo $no;?>" value = "<?php echo $_SESSION['uid'];?>">
         <input type = "hidden" name="mid2" id="mid2<?php echo $no;?>" value="<?php echo $row['mmid'];?>">
        <button type="submit" name="op2"
         onclick = "cc2(<?php echo $no; ?>);change22(<?php echo $no; ?>);  "
         id = "btnclick2<?php echo $no;?>" class="btn btn-primary" 
         style="background-color:green;" value = "1">+ Follow</button>
-        </form>
+       <!-- </form>-->
       </div>
     </div>
   <?php $no++;?>
