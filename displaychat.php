@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       echo "<div id='prechat' style='display:block'>";
       foreach($details as $detail){
       echo "
-      <b>$detail[sender]</b>
+      <b>$detail[sender_name]</b>
       <div>$detail[time]</div>
       <div>$detail[message]</div>";
       }
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       echo "<div id='prechatmentor' style='display:block'>";
         foreach($details2 as $detail2){
         echo "
-        <b>$detail2[sender]</b>
+        <b>$detail2[sender_name]</b>
         <div>$detail2[time]</div>
         <div>$detail2[message]</div>";
         }

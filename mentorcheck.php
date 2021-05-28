@@ -8,11 +8,13 @@ session_start();
     $result= $con->query($sql1);
     $details = mysqli_fetch_array($result, MYSQLI_BOTH);
     $_SESSION['mid'] = $details['mid'];
+    $_SESSION['name'] = $details['name'];
     //echo $_SESSION['mid'];
     $count = $result->num_rows;
     if($count == 1){
       $_SESSION["mentor_email"] = $email;
       $_SESSION['login'] = 1;
+
       echo "<script>window.location.href='index.php'</script>";
     }
     else {
