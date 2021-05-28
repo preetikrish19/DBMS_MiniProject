@@ -5,7 +5,6 @@ $sql1="SELECT * FROM enrolldetails INNER JOIN follow on enrolldetails.uid = foll
 mentordetails.mid = follow.mid INNER JOIN mentorpost on mentordetails.mid=mentorpost.mentor_id 
 WHERE follow.uid=$_SESSION[uid]";
 $query = mysqli_query($con, $sql1);
-$ct = mysqli_num_rows($query);
 if(!($result1= $con->query($sql1))){ 
   die($con->error);
 }
@@ -103,7 +102,6 @@ td,th{
   </ul>
   </div>
 </nav>
-
 <div class="container">           
   <table class="table table-striped">
     <thead>
@@ -113,7 +111,6 @@ td,th{
     <th>DESCRIPTION</th>
     <th>DOMAIN</th>
     <th>FILENAME</th>
-    <th>LIKES</th>
       </tr>
     </thead>
     <?php
@@ -133,16 +130,6 @@ while($row = mysqli_fetch_assoc($result1)){
         $dd="C++";
   if($d==6)
        $dd="PYTHON";
-     $sql2="SELECT likes FROM mentorpost WHERE Post_id=$r";
-       $result2= $con->query($sql2);
-       while($row2 = mysqli_fetch_assoc($result2)){
-      $lc=$row2['likes'];
-          }
-             $c=$lc;
-       $sql3="SELECT * FROM likestab WHERE uid=$_SESSION[uid] AND pid=$r";
-       $result3= $con->query($sql3);
-       while($row3 = mysqli_fetch_assoc($result3)){
-       $l=$row3['lk'];
        ?>
     <tbody>
     <tr>
@@ -151,17 +138,7 @@ while($row = mysqli_fetch_assoc($result1)){
     <td><b><?php echo $row['post_description'];?></b></td>
     <td><b><?php echo $dd; ?></b></td>
     <td><b><a href="upload/<?php echo $row['file_name'] ?>" target="_blank">
-    <button class="button"><img src="images/mail.png" width="25" height="25">  CLICK HERE TO VIEW</button></a></td>
-    </b><td>
-    <input type="hidden" value="<?php echo $l;?>" id="l<?php echo $i;?>" name="lk">
-    <input type="hidden" value="1" id="lk<?php echo $i;?>" name="lk">
-    <input type="hidden" value="<?php echo $row['Post_id'];?>" id="pid<?php echo $i;?>" name="pid">
-    <input type="image" height="40" width="45" onclick="im(<?php echo $i;?>);c(<?php echo $i; ?>);vc(<?php echo $i; ?>);"
-     src="dislike.png" id="imid<?php echo $i;?>" alt="submit">
-    <br>
-       <?php echo $c;
-       }?>
-    </td>
+    <button class="button"><img src="images/mail.png" width="25" height="25">  CLICK HERE TO VIEW</button></a></b></td>
     </tr>
     <?php 
     $i++;
@@ -169,69 +146,6 @@ while($row = mysqli_fetch_assoc($result1)){
     </tbody>
   </table>
 </div>
-<script>
-$(function() { 
-  var ct="<?php echo $ct;?>";
-  var i=1;
-  while(i<=ct){
-  c1(i);
-  i++;
-  }
-});
-function c1(i)
- {
-  var a= document.getElementById('l' + i).value;
-    if ( a == 1 ){
-    document.getElementById('imid' + i).src="http://localhost/DBMS_MiniProject/like2.jpg";
-    document.getElementById('lk' + i).value=0;
-  }
-  else
-  {
- document.getElementById('imid' + i).src="http://localhost/DBMS_MiniProject/dislike.png";
- document.getElementById('lk' + i).value=1;
-    }
- }
-function im(i)
-{
-    if(document.getElementById('imid' + i).src==="http://localhost/DBMS_MiniProject/dislike.png")
-        document.getElementById('imid' + i).src="http://localhost/DBMS_MiniProject/like2.jpg";
-    else
-    document.getElementById('imid' + i).src="http://localhost/DBMS_MiniProject/dislike.png";
-}
-function vc(i) 
-{
-    //alert("vc");
-    var m1= document.getElementById('lk' + i).value;
-    //alert(m1);
-    if( m1==1)
-        {
-           m1= 0;
-        }
-            else
-        {
-          m1= 1;
-        }
-   document.getElementById('lk' + i).value= m1;
-     // alert(m1);
-      }
-function c(i) {
-        var lk=document.getElementById('lk' + i).value;
-        var pid=document.getElementById('pid' + i).value;
-        var arr = {
-            lk: lk,
-            pid: pid,
-        };
-        $.ajax({
-                method: "post",
-                url: "like.php",
-                data: arr,
-                datatype: "html",
-                success: function(response) {
-                    $('#res2').html(response);
-                }
-            });
-    }
-</script>
 </body>
 </html>
 <?php }
