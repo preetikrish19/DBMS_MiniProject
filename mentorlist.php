@@ -80,6 +80,9 @@ if(!($result2= $con->query($sql2))){
    <?php
    $no=1;
    while($row = mysqli_fetch_assoc($result1)){
+    $r=$row['mmid'];
+    $sql3="SELECT count FROM countfollow where mid=$r";
+     $c=$row3['count'];
    ?>
     <div class="col-sm-4">
       <div class="card" style="width:340px">
@@ -87,6 +90,7 @@ if(!($result2= $con->query($sql2))){
        <div class="card-body">
         <h4 class="card-title"><?php echo $row['name'];?></h4>
         <p class="card-text"><?php echo $row['description'];?></p>
+        <p class="card-text"><b><?php echo $c;?> FOLLOWERS</b></p>
         <div class="dabba">
         <ul>
         <li><a href= '#' class="fa fa-facebook"></a></li>
@@ -147,6 +151,11 @@ if(!($result2= $con->query($sql2))){
    <?php
    $no=100;
    while($row = mysqli_fetch_assoc($result2)){
+    $rr=$row['mmid'];
+    $sql4="SELECT count FROM countfollow where mid=$rr";
+    $result4 = $con->query($sql4);
+    $row4 = mysqli_fetch_array($result4, MYSQLI_BOTH);
+     $ct=$row4['count'];
    ?>
     <div class="col-sm-4">
       <div class="card" style="width:340px">
@@ -154,6 +163,7 @@ if(!($result2= $con->query($sql2))){
        <div class="card-body">
         <h4 class="card-title"><?php echo $row['name'];?></h4>
         <p class="card-text"><?php echo $row['description'];?></p>
+        <p class="card-text"><b><?php echo $ct;?> FOLLOWERS</b></p>
         <div class="dabba">
         <ul>
         <li><a href= '#' class="fa fa-facebook"></a></li>
