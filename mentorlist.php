@@ -6,9 +6,9 @@ include "db.php";
 //$sql2="SELECT mentordetails.mid AS mmid,follow.mid AS fmid,mentordetails.description,mentordetails.name FROM mentordetails
 //LEFT JOIN follow ON mentordetails.mid= follow.mid WHERE follow.uid IS NULL";
 $sql1="SELECT mentordetails.mid AS mmid,mentordetails.description,mentordetails.name FROM mentordetails
-WHERE mentordetails.mid IN (SELECT mid FROM follow WHERE uid=$_SESSION[uid])";
+WHERE mentordetails.mid IN (SELECT mid FROM follow WHERE uid=$_SESSION[uid]) AND mentordetails.display=1";
 $sql2="SELECT mentordetails.mid AS mmid,mentordetails.description,mentordetails.name FROM mentordetails
-WHERE mentordetails.mid NOT IN (SELECT mid FROM follow WHERE uid=$_SESSION[uid])";
+WHERE mentordetails.mid NOT IN (SELECT mid FROM follow WHERE uid=$_SESSION[uid]) AND mentordetails.display=1";
 $result2 = $con->query($sql2);
 $result1 = $con->query($sql1);
 if(!($result2= $con->query($sql2))){ 
