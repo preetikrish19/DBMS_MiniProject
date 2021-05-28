@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 $file_type=$_FILES['file']['type'];
 
-if ($file_type=="application/pdf" || $file_type=="image/gif" || $file_type=="image/jpeg") {
+if ($file_type=="application/pdf" || $file_type=="image/gif" || $file_type=="image/jpeg" || $file_type=="image/png") {
 
  if(move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder))
 
