@@ -34,13 +34,14 @@ if(!($result2= $con->query($sql2))){
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   
   <style>
+  /*
   body {
   background-image: url(images/background.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   }
-  
+  */
   ul li{
     display: inline;
     margin-right: 5px;
@@ -71,11 +72,42 @@ if(!($result2= $con->query($sql2))){
             });
     });
   });
+  $(document).ready(function() {
+    $('#myinput').keyup(function(){
+        search_text($(this).val());
+    });
+
+    function search_text(value){
+        $('.card ').each(function(){
+            var found = 'false';
+            $(this).each(function(){
+                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                {
+                    found = 'true';
+                }
+            });
+            if(found == 'true'){
+                $(this).show()
+            }
+            else {
+                $(this).hide();
+            }
+        })
+    }
+});
 </script>
 
-<body>
+<body class=bg-dark>
  <div class="container" style="margin-top:10px">
+  <ul>
+    <li>
    <h1 class = "text-white" style = "text-align:center">Our Mentors</h2>
+   </h1>
+ </li>
+    <li>
+    <div><input type="text" id="myinput" placeholder="Search Mentor..." class="form-control" /></div>
+    </li>
+  </ul>
     <div class="row">
    <?php
    $no=1;

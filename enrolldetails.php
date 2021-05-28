@@ -10,30 +10,16 @@ session_start();
     $department = $con->real_escape_string($_POST['department']);
     $_SESSION['name'] = $name;
     $sql = "INSERT INTO enrolldetails (name,email,year,password,department) VALUES ('$name', '$email', '$year', '$password', '$department')";
-    $sql1="INSERT INTO user (username,studentemail) VALUES ('$name', '$email')";
+    //$sql1="INSERT INTO user (username,studentemail) VALUES ('$name', '$email')";
   if($con->query($sql))
   {
     echo "<script>";
 	echo "alert('Enrolled Successfully');";
-	echo "window.location.href = 'index.php';";
+	echo "window.location.href = 'enroll.php';";
 	echo "</script>";
   }
   else{
     echo "Error: " . $sql . "<br>" . $con->error;
   }
-  if($con->query($sql1)){
-    echo "<script>";
-	echo "alert('Enrolled Successfully');";
-	echo "window.location.href = 'index.php';";
-	echo "</script>";
-  }
-  else{
-    echo "Error: " . $sql1 . "<br>" . $con->error;
-  }
-
 }
-    else {
-      echo "Access denied";
-    }
-
 ?>
