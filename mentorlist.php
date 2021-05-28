@@ -40,6 +40,7 @@ if(!($result2= $con->query($sql2))){
   background-position: center;
   background-size: cover;
   }
+  
   ul li{
     display: inline;
     margin-right: 5px;
