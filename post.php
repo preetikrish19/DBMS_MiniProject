@@ -2,7 +2,16 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <title>Connection | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
@@ -65,6 +74,42 @@ body{
 }
 </style>
 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+<a class="navbar-brand" href="#">
+    <img src="images/logo.jpeg" alt="logo" style="width:80px;height:50px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar" class = "navbar justify-content-end">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php#about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="mentorlist.php">Find a mentor</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="domain.php">Domains</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php#footer">Contact</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="profile.php">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="logout.php">Log out</a>
+    </li>
+
+  </ul>
+  </div>
+</nav>
+
 <div class ="form">
   <div class="post-form">
    <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -92,28 +137,7 @@ body{
     <input type="submit" class="button" value="Post"/>
     </div>
 </div>
-</form>
-  <!--Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <br>
-  Select file to upload:
-  <p><input type="hidden" name="MAX_FILE_SIZE" value="200000" /> <input
-	type="file" name="pdfFile" /><br />
-<input type="submit">
-  <div class="mb-3">
-  <label for="formGroupExampleInput" class="form-label">Mentor Name</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
-</div>
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Mentor Id</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
-</div>
-<div class="input-group mb-3">
-  <input type="file" class="form-control" id="inputGroupFile02">
-  <label class="input-group-text" for="inputGroupFile02">Upload</label>
-</div> -->
 
-</form>
 
 </body>
 </html>
