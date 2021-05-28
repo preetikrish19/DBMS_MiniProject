@@ -48,6 +48,12 @@ if($_SESSION['login'] == 0){
       <a class="nav-link" href="domain.php">Domains</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="publicforum.php">Public forum</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="postdis.php">Posts</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="index.php#footer">Contact</a>
     </li>
     <li class="nav-item">
