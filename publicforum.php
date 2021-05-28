@@ -54,6 +54,9 @@ $i = 1;
       <a class="nav-link" href="enroll.php">Enroll</a>
     </li>-->
     <li class="nav-item">
+      <a class="nav-link" href="mentorlist.php">Find a mentor</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="domain.php">Domains</a>
     </li>
     <li class="nav-item">

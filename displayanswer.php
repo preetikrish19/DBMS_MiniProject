@@ -1,11 +1,11 @@
 <?php 
+session_start();
     include('db.php');
     $qid = $_GET['question_id']; 
     //echo $qid;
     $sql1 = "SELECT * FROM question WHERE qid=$qid";
     $result1= mysqli_query($con, $sql1);
     $details1 = mysqli_fetch_array($result1, MYSQLI_BOTH);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,12 @@
         text-align: center;
       margin-top: 1em;
 
+  }
+  li{
+    display: inline;
+  }
+  .ans{
+    margin: 3em;
   }
   </style>
   <link rel = "stylesheet" href = "styleindex.css">
@@ -76,8 +82,42 @@
 <button onclick="send(<?php echo $qid;?>)" class="btn btn-primary" style="margin-left: 1em;height:3em">ANSWER</button>
 <div id="res"></div>
 <br>
+<div><button class="btn btn-light" onclick="mentans(<?php echo $qid;?>)">Mentors Answers</button>             <button class="btn btn-light" onclick="studans(<?php echo $qid;?>)">Students Answers</button></div>
 </div>
+<div id="res2"></div>
 <script>
+function mentans(qid){
+        //console.log(qid);
+        var ar2 = {
+          type: 1,
+          qid: qid
+        };
+        $.ajax({
+            method: "post",
+                    url: "answertype.php",
+                    data: ar2,
+                    datatype: "html",
+                    success: function(response) {
+                        $("#res2").html(response);
+                    }
+        });
+}
+function studans(qid){
+        //console.log(qid);
+        var ar3 = {
+          type: 0,
+          qid: qid
+        };
+        $.ajax({
+            method: "post",
+                    url: "answertype2.php",
+                    data: ar3,
+                    datatype: "html",
+                    success: function(response) {
+                        $("#res2").html(response);
+                    }
+        });
+}
 function send(qid){
         var ans=document.getElementById('answer').value;
         //console.log(qn);
