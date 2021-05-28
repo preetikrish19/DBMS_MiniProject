@@ -82,6 +82,8 @@ if(!($result2= $con->query($sql2))){
    while($row = mysqli_fetch_assoc($result1)){
     $r=$row['mmid'];
     $sql3="SELECT count FROM countfollow where mid=$r";
+    $result3 = $con->query($sql3);
+    $row3 = mysqli_fetch_array($result3, MYSQLI_BOTH);
      $c=$row3['count'];
    ?>
     <div class="col-sm-4">
