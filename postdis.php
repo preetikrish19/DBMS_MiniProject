@@ -1,9 +1,10 @@
 <?php
 session_start();
 include('db.php');
-$sql1="SELECT * FROM enrolldetails INNER JOIN follow on enrolldetails.uid = follow.uid INNER JOIN mentordetails on 
-mentordetails.mid = follow.mid INNER JOIN mentorpost on mentordetails.mid=mentorpost.mentor_id 
-WHERE follow.uid=$_SESSION[uid]";
+//$sql1= " SELECT * FROM enrolldetails INNER JOIN follow on enrolldetails.uid = follow.uid INNER JOIN mentordetails on 
+//mentordetails.mid = follow.mid INNER JOIN mentorpost on mentordetails.mid=mentorpost.mentor_id 
+//WHERE follow.uid=$_SESSION[uid]" ;
+$sql1="SELECT * FROM postdisplay2 WHERE uid=$_SESSION[uid]";
 $query = mysqli_query($con, $sql1);
 if(!($result1= $con->query($sql1))){ 
   die($con->error);
@@ -116,8 +117,14 @@ td,th{
     <?php
     $i=1;
 while($row = mysqli_fetch_assoc($result1)){
-    $r=$row['Post_id'];
-  $d=$row['Domains'];
+$d=$row['Domains'];
+$r1=$row['choice1'];
+$r2=$row['choice2'];
+$r3=$row['choice3'];
+$r4=$row['choice4'];
+$r5=$row['choice5'];
+$r6=$row['choice6'];
+$p=$row['Post_id'];
   if($d==1)
         $dd="DSA";
   if($d==2)
@@ -130,7 +137,8 @@ while($row = mysqli_fetch_assoc($result1)){
         $dd="C++";
   if($d==6)
        $dd="PYTHON";
-       ?>
+if($d==$r1 || $d==$r2 || $d==$r3 || $d==$r4 || $d==$r5 || $d==$r6)
+   {    ?>
     <tbody>
     <tr>
     <td><b><?php echo $i; ?></b></td>
@@ -140,9 +148,10 @@ while($row = mysqli_fetch_assoc($result1)){
     <td><b><a href="upload/<?php echo $row['file_name'] ?>" target="_blank">
     <button class="button"><img src="images/mail.png" width="25" height="25">  CLICK HERE TO VIEW</button></a></b></td>
     </tr>
-    <?php 
+    <?php  
     $i++;
-       }?>
+   }
+      } ?>
     </tbody>
   </table>
 </div>
