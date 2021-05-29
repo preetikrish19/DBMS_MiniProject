@@ -58,6 +58,9 @@ if(!($result2= $con->query($sql2))){
 
     text-align: center;
   }
+  .new{
+  float: right;
+}
 </style>
 
 <script>
@@ -140,11 +143,9 @@ if(!($result2= $con->query($sql2))){
     <li class="nav-item">
       <a class="nav-link" href="logout.php">Log out</a>
     </li>
- <li>
-    <div><input type="text" id="myinput" placeholder="Search Mentor..." class="form-control" /></div>
-  </li>
-  </ul>
+    </ul>
   </div>
+  <div class="new"><input type="text" id="myinput" placeholder="Search Mentor..." class="form-control" /></div>
 </nav>
  <div class="container" style="margin-top:10px">
   <ul>
