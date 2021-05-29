@@ -5,8 +5,8 @@
   <div class="post-form">
   <input type="text" placeholder="Update Name" name="name"><br />
  
-  <input type="hidden" name="domain" value="0">
   <label for="cars">Choose the domain</label>
+          <input type="hidden" name="domain" value="0">
           <input type="checkbox" name="domain" value="1" class="">
           <label for="DSA">DSA</label><br>
 
