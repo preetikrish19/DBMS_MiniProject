@@ -1,8 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Connection | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class = "bg-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+<a class="navbar-brand" href="#">
+    <img src="images/logo.jpeg" alt="logo" style="width:80px;height:50px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<form action="updateform.php" method="post" enctype="multipart/form-data">
-<div class ="form">
-
-  <div class="post-form">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar" class = "navbar justify-content-end">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php#about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="mentorlist.php">Find a mentor</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="domain.php">Domains</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="publicforum.php">Public forum</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="postdis.php">Posts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php#footer">Contact</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="profile.php">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="logout.php">Log out</a>
+    </li>
+  </ul>
+  </div>
+</nav>
+<div id="main">
+  <div id="sidebar">
+  <form action="updateform.php" method="post" enctype="multipart/form-data">
   <input type="text" placeholder="Update Name" name="name"><br />
  
   <label for="cars">Choose the domain</label>
@@ -29,25 +79,16 @@
           <input type="hidden" name="choice6" value="0">
           <input type="checkbox" name="choice6" value="6" class="">
           <label for="os"></label>Python<br> 
-    
-    <!--<label for="cars">Choose the domain</label>
-    <select id="domains" name="Domains">
-        <option value="2">C</option>
-        <option value="5">C++</option>
-        <option value="6">PYTHON</option>
-        <option value="4">OS</option>
-        <option value="3">DBMS</option>
-        <option value="1">DSA</option>
-    </select>-->
     <br> 
-    <textarea rows="5" cols="80" placeholder="Update Acheivements" name="description" ></textarea><br/>
+    <textarea rows="4" cols="60" placeholder="Update Acheivements" name="description" ></textarea><br/>
     <input type="submit" class="button" value="Update"/><br/>
 
-   
-    <!--<input type="submit" class="button" value="followers"/><br/> -->
+    <input type="submit" class="button" value="followers"/><br/>
+    </form>
     </div>
-</form>
+
 <br/>
+<div id="page-wrap">
 <?php
 echo "POSTS","<br>";
 session_start();
@@ -62,5 +103,58 @@ $sql1 = "SELECT * FROM mentorpost WHERE mentor_id ='$mentor_id';";
    }
   }
    ?>
+   </div>
+   </div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Oswald', sans-serif;
+}
+body{
+  background: url('images/profilebackground.jpg') no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+}
+#main { 
+    width: 800px;
+    margin: 0 auto;
+}
+#sidebar    {
+    width: 420px;
+    height: 450px;
+    background:#ffffff ;
+    float: left;
+    margin-top: 22px;
+    margin-right:0px;
+    border: 5px solid green;
+}
+
+#page-wrap  {
+    width: 400px;
+    background: #ffffff;
+    height: 450px;
+    margin-left: 600px;
+    border: 5px solid green;
+}
+.button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+</body>
+</html>
 
 
