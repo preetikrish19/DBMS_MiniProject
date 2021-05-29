@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(mysqli_query($con, $sql))
   {
     echo "New user inserted";
-    echo "<script>window.location.href='index.php'</script>";
+    //echo "<script>window.location.href='index.php'</script>";
   }
   else{
     echo "Error: " . $sql . "<br>" . $con->error;

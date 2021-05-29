@@ -182,7 +182,7 @@ if($_SESSION['login'] == 0){
         </div>
       </li>
     <li class="nav-item">
-      <a class="nav-link" href="domain.php">Domains</a>
+      <a class="nav-link" href="domain2.php">Domains</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="publicforum.php">Public Forum</a>
@@ -296,10 +296,11 @@ if($_SESSION['login'] == 0){
      <li class="nav-item">
        <a class="nav-link" href="#about">About</a>
      </li>
+     <!--
      <li class="nav-item">
        <a class="nav-link" href="mentorlist.php">Find a mentor</a>
      </li>
-
+    -->
      <li class="nav-item">
        <a class="nav-link" href="mentorlogin.php">Be a mentor</a>
      </li>
@@ -308,7 +309,7 @@ if($_SESSION['login'] == 0){
        <a class="nav-link" href="enroll.php">Enroll</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="domain.php">Domains</a>
+       <a class="nav-link" href="domain2.php">Domains</a>
      </li>
      <li class="nav-item">
        <a class="nav-link" href="index.php#footer">Contact</a>

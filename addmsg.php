@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result3 = mysqli_query($con, $sql3);
         $details3 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
 
-        $sql = "INSERT INTO chat (student_id, mentor_id, sender, receiver, message) VALUES ('$_SESSION[uid]', '$mid', '$_SESSION[uid]', '$mid', '$msg')";
+        $sql = "INSERT INTO chat (student_id, mentor_id, sender_name, sender, receiver, message) VALUES ('$_SESSION[uid]', '$mid', '$_SESSION[name]', '$_SESSION[uid]', '$mid', '$msg')";
         $result = mysqli_query($con, $sql);
         $sql2 = "SELECT * FROM chat WHERE student_id=$_SESSION[uid] AND mentor_id=$mid ORDER BY chat_id DESC LIMIT 1";
         $result2 = mysqli_query($con, $sql2);
@@ -20,14 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         foreach($details3 as $detail3){
             echo "
-            <b>$detail3[sender]</b>
+            <b>$detail3[sender_name]</b>
             <div>$detail3[time]</div>
             <div>$detail3[message]</div>";
         }
         if($result)
         {
             echo "
-            <b>$details[sender]</b>
+            <b>$_SESSION[name]</b>
             <div>$details[time]</div>
             <div>$details[message]</div>";
         }
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result4 = mysqli_query($con, $sql4);
         $details4 = mysqli_fetch_all($result4, MYSQLI_ASSOC);
 
-        $sql5 = "INSERT INTO chat (student_id, mentor_id, sender, receiver, message) VALUES ('$uid', '$_SESSION[mid]', '$_SESSION[mid]', '$uid', '$msg2')";
+        $sql5 = "INSERT INTO chat (student_id, mentor_id, sender_name, sender, receiver, message) VALUES ('$uid', '$_SESSION[mid]', '$_SESSION[name]', '$_SESSION[mid]', '$uid', '$msg2')";
         $result = mysqli_query($con, $sql5);
         $sql6 = "SELECT * FROM chat WHERE student_id=$uid AND mentor_id=$_SESSION[mid] ORDER BY chat_id DESC LIMIT 1";
         $result2 = mysqli_query($con, $sql6);
@@ -52,14 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         foreach($details4 as $detail4){
             echo "
-            <b>$detail4[sender]</b>
+            <b>$detail4[sender_name]</b>
             <div>$detail4[time]</div>
             <div>$detail4[message]</div>";
         }
         if($result)
         {
             echo "
-            <b>$details[sender]</b>
+            <b>$_SESSION[name]</b>
             <div>$details[time]</div>
             <div>$details[message]</div>";
         }

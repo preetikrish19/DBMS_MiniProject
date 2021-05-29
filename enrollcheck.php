@@ -13,6 +13,7 @@ session_start();
     if($count == 1){
       $_SESSION['student_email'] = $email;
       $_SESSION['login'] = 0;
+      $_SESSION['name'] = $details['name'];
       echo "<script>window.location.href='index.php'</script>";
     }
     else {

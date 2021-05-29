@@ -34,13 +34,14 @@ if(!($result2= $con->query($sql2))){
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   
   <style>
+  /*
   body {
   background-image: url(images/background.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   }
-  
+  */
   ul li{
     display: inline;
     margin-right: 5px;
@@ -71,15 +72,51 @@ if(!($result2= $con->query($sql2))){
             });
     });
   });
+  $(document).ready(function() {
+    $('#myinput').keyup(function(){
+        search_text($(this).val());
+    });
+
+    function search_text(value){
+        $('.card ').each(function(){
+            var found = 'false';
+            $(this).each(function(){
+                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                {
+                    found = 'true';
+                }
+            });
+            if(found == 'true'){
+                $(this).show()
+            }
+            else {
+                $(this).hide();
+            }
+        })
+    }
+});
 </script>
 
-<body>
+<body class=bg-dark>
  <div class="container" style="margin-top:10px">
+  <ul>
+    <li>
    <h1 class = "text-white" style = "text-align:center">Our Mentors</h2>
+   </h1>
+ </li>
+    <li>
+    <div><input type="text" id="myinput" placeholder="Search Mentor..." class="form-control" /></div>
+    </li>
+  </ul>
     <div class="row">
    <?php
    $no=1;
    while($row = mysqli_fetch_assoc($result1)){
+    $r=$row['mmid'];
+    $sql3="SELECT count FROM countfollow where mid=$r";
+    $result3 = $con->query($sql3);
+    $row3 = mysqli_fetch_array($result3, MYSQLI_BOTH);
+     $c=$row3['count'];
    ?>
     <div class="col-sm-4">
       <div class="card" style="width:340px">
@@ -87,6 +124,7 @@ if(!($result2= $con->query($sql2))){
        <div class="card-body">
         <h4 class="card-title"><?php echo $row['name'];?></h4>
         <p class="card-text"><?php echo $row['description'];?></p>
+        <p class="card-text"><b><?php echo $c;?> FOLLOWERS</b></p>
         <div class="dabba">
         <ul>
         <li><a href= '#' class="fa fa-facebook"></a></li>
@@ -147,6 +185,11 @@ if(!($result2= $con->query($sql2))){
    <?php
    $no=100;
    while($row = mysqli_fetch_assoc($result2)){
+    $rr=$row['mmid'];
+    $sql4="SELECT count FROM countfollow where mid=$rr";
+    $result4 = $con->query($sql4);
+    $row4 = mysqli_fetch_array($result4, MYSQLI_BOTH);
+     $ct=$row4['count'];
    ?>
     <div class="col-sm-4">
       <div class="card" style="width:340px">
@@ -154,6 +197,7 @@ if(!($result2= $con->query($sql2))){
        <div class="card-body">
         <h4 class="card-title"><?php echo $row['name'];?></h4>
         <p class="card-text"><?php echo $row['description'];?></p>
+        <p class="card-text"><b><?php echo $ct;?> FOLLOWERS</b></p>
         <div class="dabba">
         <ul>
         <li><a href= '#' class="fa fa-facebook"></a></li>
