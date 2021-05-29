@@ -140,6 +140,9 @@ if(!($result2= $con->query($sql2))){
     <li class="nav-item">
       <a class="nav-link" href="logout.php">Log out</a>
     </li>
+ <li>
+    <div><input type="text" id="myinput" placeholder="Search Mentor..." class="form-control" /></div>
+  </li>
   </ul>
   </div>
 </nav>
@@ -149,9 +152,9 @@ if(!($result2= $con->query($sql2))){
    <h1 class = "text-white" style = "text-align:center">Our Mentors</h2>
    </h1>
  </li>
-    <li>
+<!--   <li>
     <div><input type="text" id="myinput" placeholder="Search Mentor..." class="form-control" /></div>
-    </li>
+    </li>  -->
   </ul>
     <div class="row">
    <?php
