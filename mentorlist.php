@@ -96,8 +96,53 @@ if(!($result2= $con->query($sql2))){
     }
 });
 </script>
+<body class = "bg-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+<a class="navbar-brand" href="#">
+    <img src="images/logo.jpeg" alt="logo" style="width:80px;height:50px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<body class=bg-dark>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar" class = "navbar justify-content-end">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php#about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="mentorlist.php">Find a mentor</a>
+    </li>
+    
+    <!--
+
+    <li class="nav-item">
+      <a class="nav-link" href="mentorlogin.php">Be a mentor</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="enroll.php">Enroll</a>
+    </li>-->
+    <li class="nav-item">
+      <a class="nav-link" href="domain.php">Domains</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="publicforum.php">Public forum</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="postdis.php">Posts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.php#footer">Contact</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="logout.php">Log out</a>
+    </li>
+  </ul>
+  </div>
+</nav>
  <div class="container" style="margin-top:10px">
   <ul>
     <li>

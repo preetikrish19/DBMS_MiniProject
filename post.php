@@ -91,10 +91,7 @@ body{
       <a class="nav-link" href="index.php#about">About</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="mentorlist.php">Find a mentor</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="domain.php">Domains</a>
+      <a class="nav-link" href="domain2.php">Domains</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="index.php#footer">Contact</a>

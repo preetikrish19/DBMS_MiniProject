@@ -68,10 +68,11 @@ td,th{
   <div class="collapse navbar-collapse" id="collapsibleNavbar" class = "navbar justify-content-end">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Home</a>
+   
+      <a class="nav-link" href="index.php">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="index.php#about">About</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="mentorlist.php">Find a mentor</a>

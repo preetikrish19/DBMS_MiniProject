@@ -70,7 +70,7 @@ $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
       </li>
     <li class="nav-item">
-      <a class="nav-link" href="domain.php">Domains</a>
+      <a class="nav-link" href="domain2.php">Domains</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="publicforum.php">Public Forum</a>

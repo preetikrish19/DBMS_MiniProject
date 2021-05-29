@@ -177,10 +177,13 @@ elseif ($_SESSION['login']==1){
             </div>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="domain.php">Domains</a>
+        <a class="nav-link" href="domain2.php">Domains</a>
         </li>
         <li class="nav-item">
         <a class="nav-link active" href="#">Public Forum</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="post.php">Post</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="index.php#footer">Contact</a>

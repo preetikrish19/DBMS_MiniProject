@@ -23,6 +23,60 @@
     }
     </style>
     <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end"><a class="navbar-brand" href="#">
+    <img src="images/logo.jpeg" alt="logo" style="width:80px;height:50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar" class = "navbar justify-content-end">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="index.php#about">About</a>
+        </li>
+        <!--
+        <li class="nav-item">
+        <a class="nav-link" href="mentorlist.php">Find a mentor</a>
+        </li>-->
+        <!--
+
+        <li class="nav-item">
+        <a class="nav-link" href="mentorlogin.php">Be a mentor</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="enroll.php">Enroll</a>
+        </li>-->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Messages
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item bg-dark active" href="#" style="color: white">Follow</a>
+            <div class="dropdown-divider bg-light"></div>
+            <a class="dropdown-item bg-dark" href="unfollowchat.php" style="color: white">Unfollow</a>
+            </div>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active" href="#">Domains</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="publicforum.php">Public Forum</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="post.php">Post</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="index.php#footer">Contact</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="logout.php">Log out</a>
+        </li>
+    </ul>
+    </div>
+    </nav>
     <h1 class = "text-white" style = "text-align:center">Domains</h2>
     <div class="row">
       <div class="container">
