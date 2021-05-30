@@ -54,7 +54,7 @@
             Messages
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item bg-dark active" href="#" style="color: white">Follow</a>
+            <a class="dropdown-item bg-dark active" href="messages.php" style="color: white">Follow</a>
             <div class="dropdown-divider bg-light"></div>
             <a class="dropdown-item bg-dark" href="unfollowchat.php" style="color: white">Unfollow</a>
             </div>

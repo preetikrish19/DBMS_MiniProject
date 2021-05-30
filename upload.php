@@ -51,7 +51,7 @@ $sql = "INSERT INTO mentorpost (mentor_id,post_description,Domains,file_name) VA
   if(mysqli_query($con, $sql))
   {
     echo "posted";
-    echo "<script>window.location.href='index.php'</script>";
+    echo "<script>window.location.href='post.php'</script>";
   }
   else{
     echo "Error: " . $sql . "<br>" . $con->error;

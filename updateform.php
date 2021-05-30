@@ -19,7 +19,7 @@ $sql = "UPDATE  mentordetails SET domain = '$domains', name = '$name', descripti
 if(mysqli_query($con, $sql))
   {
     echo "Updated";
-    echo "<script>window.location.href='index.php'</script>";
+    echo "<script>window.location.href='profile.php'</script>";
   }
   else{
     echo "Error: " . $sql . "<br>" . $con->error;

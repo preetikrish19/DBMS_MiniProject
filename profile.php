@@ -9,6 +9,35 @@ $sql3 = "SELECT follow.mid, enrolldetails.uid, enrolldetails.name FROM follow IN
 $result3 = mysqli_query($con,$sql3);
 $details3 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
 //print_r($details3);
+$sql4 = "SELECT * FROM mentordetails WHERE mid=$mentor_id";
+$result4 = mysqli_query($con, $sql4);
+$details4 = mysqli_fetch_array($result4, MYSQLI_BOTH);
+$domains = array();
+if($details4['domain']==1)
+{
+  array_push($domains,"DSA");
+}
+if($details4['choice2']==2)
+{
+  array_push($domains,"C programming");
+}
+if($details4['choice3']==3)
+{
+  array_push($domains,"DBMS");
+}
+if($details4['choice4']==4)
+{
+  array_push($domains,"Operating system");
+}
+if($details4['choice5']==5)
+{
+  array_push($domains,"C++ Programming");
+}
+if($details4['choice6']==6)
+{
+  array_push($domains,"Python");
+}
+//print_r($domains);
 $sql2="SELECT * FROM countfollow WHERE mid=$mentor_id";
 $result2 = mysqli_query($con,$sql2);
 $details2 = mysqli_fetch_array($result2, MYSQLI_BOTH);
@@ -146,8 +175,18 @@ body{
   </div>
 </nav>
 <h3>
-<div style="color:white; margin-top: 10px; text-align:center;">Hello, <?php echo $_SESSION['name'];?> You have <?php echo $details2['count'];?> followers</div>
+<div style="color:white; margin-top: 10px; text-align:center;">Hello, <?php echo $details4['name'];?> You have <?php echo $details2['count'];?> followers</div>
 </h3>
+<h5>
+<div style="color:white; margin-top: 10px; text-align:center;">
+Your currently mentoring these domains:
+<ul>
+<?php for($i=0; $i<count($domains); $i++){?>
+<li>    |<?php echo $domains[$i];?>|    </li>
+<?php } ?>
+</ul>
+</div>
+</h5>
 <div id="main">
   <div id="sidebar">
   <form action="updateform.php" method="post" enctype="multipart/form-data">
