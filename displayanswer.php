@@ -60,10 +60,10 @@ session_start();
     </li>
     <li class="nav-item">
       <a class="nav-link" href="enroll.php">Enroll</a>
-    </li>-->
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="domain.php">Domains</a>
-    </li>
+    </li>-->
     <li class="nav-item">
       <a class="nav-link active" href="#">Public Forum</a>
     </li>
