@@ -47,7 +47,7 @@ Our DBMS Tutorial includes all topics of DBMS such as introduction, ER model, ke
       <h4 class="card-title" style="color:black;"><?php echo $detail['name'];?></h4>
       <p class="card-text" style="color:black;"><?php echo $detail['description'];?></p>
 
-      <a href="#" class="btn btn-primary">See Profile</a>
+     
     </div>
   </div>
   </div>

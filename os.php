@@ -2,7 +2,7 @@
   session_start();
     include("db.php");
     $did = 4;
-    $sql = "SELECT * FROM mentordetails WHERE domain='$did' AND display=1";
+    $sql = "SELECT * FROM mentordetails WHERE choice4='$did' AND display=1";
     $result = mysqli_query($con, $sql);
     $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
     //print_r($details);
@@ -54,8 +54,6 @@ Following are some of important functions of an operating System.
     <div class="card-body">
       <h4 class="card-title" style="color:black;"><?php echo $detail['name'];?></h4>
       <p class="card-text" style="color:black;"><?php echo $detail['description'];?></p>
-
-      <a href="#" class="btn btn-primary">See Profile</a>
     </div>
   </div>
   </div>
@@ -68,7 +66,6 @@ Following are some of important functions of an operating System.
 </div>
 <br>
 <div id="footer">
-
  <?php
    include('footer.php')
  ?>

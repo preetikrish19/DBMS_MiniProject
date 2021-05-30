@@ -45,8 +45,6 @@ Python is a MUST for students and working professionals to become a great Softwa
     <div class="card-body">
       <h4 class="card-title" style="color:black;"><?php echo $detail['name'];?></h4>
       <p class="card-text" style="color:black;"><?php echo $detail['description'];?></p>
-
-      <a href="#" class="btn btn-primary">See Profile</a>
     </div>
   </div>
   </div>
