@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     {
         $msg2 = $con->real_escape_string($_POST['msg2']);
         $uid = $_SESSION['muid'];
-        $sql4 = "SELECT * FROM chat WHERE student_id=$uid AND mentor_id=$_SESSION[mid] ORDER BY time ASC";
+        $sql4 = "SELECT * FROM chat WHERE student_id=$uid AND mentor_id=$_SESSION[mid] ORDER BY chat_id ASC";
         $result4 = mysqli_query($con, $sql4);
         $details4 = mysqli_fetch_all($result4, MYSQLI_ASSOC);
 

@@ -12,7 +12,7 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="bg-dark">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 *{
@@ -20,13 +20,15 @@ session_start();
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: 'Oswald', sans-serif;
+  /*font-family: 'Oswald', sans-serif;*/
 }
+/*
 body{
   background: url('images/postbackground.jpg') no-repeat top center;
   background-size: cover;
   height: 100vh;
 }
+*/
 .form{
   position: absolute;
   top: 50%;
@@ -113,7 +115,7 @@ body{
       <a class="nav-link" href="index.php#footer">Contact</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="profile.php">Profile</a>
+      <a class="nav-link" href="profile.php">Your profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="logout.php">Log out</a>

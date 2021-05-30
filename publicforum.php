@@ -171,7 +171,7 @@ elseif ($_SESSION['login']==1){
             Messages
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item bg-dark active" href="#" style="color: white">Follow</a>
+            <a class="dropdown-item bg-dark active" href="messages.php" style="color: white">Follow</a>
             <div class="dropdown-divider bg-light"></div>
             <a class="dropdown-item bg-dark" href="unfollowchat.php" style="color: white">Unfollow</a>
             </div>
@@ -188,6 +188,9 @@ elseif ($_SESSION['login']==1){
         <li class="nav-item">
         <a class="nav-link" href="index.php#footer">Contact</a>
         </li>
+        <li class="nav-item">
+    <a class="nav-link" href="profile.php">Your profile</a>
+    <li>
         <li class="nav-item">
         <a class="nav-link" href="logout.php">Log out</a>
         </li>

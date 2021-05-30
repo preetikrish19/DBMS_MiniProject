@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //echo $_SESSION['uid'];
       //echo $mid;
 
-      $sql = "SELECT * FROM chat WHERE student_id=$_SESSION[uid] AND mentor_id=$mid ORDER BY time ASC";
+      $sql = "SELECT * FROM chat WHERE student_id=$_SESSION[uid] AND mentor_id=$mid ORDER BY chat_id ASC";
       $result = mysqli_query($con, $sql);
       $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

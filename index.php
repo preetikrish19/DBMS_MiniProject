@@ -194,6 +194,9 @@ if($_SESSION['login'] == 0){
       <a class="nav-link" href="index.php#footer">Contact</a>
     </li>
     <li class="nav-item">
+    <a class="nav-link" href="profile.php">Your profile</a>
+    <li>
+    <li class="nav-item">
       <a class="nav-link" href="logout.php">Log out</a>
     </li>
   </ul>
