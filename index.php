@@ -312,7 +312,7 @@ if($_SESSION['login'] == 0){
        <a class="nav-link" href="enroll.php">Enroll</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="domain2.php">Domains</a>
+       <a class="nav-link" href="domain3.php">Domains</a>
      </li>
      <li class="nav-item">
        <a class="nav-link" href="index.php#footer">Contact</a>

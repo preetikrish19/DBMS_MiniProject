@@ -76,6 +76,9 @@ $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <a class="nav-link" href="publicforum.php">Public Forum</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="post.php">Post</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="index.php#footer">Contact</a>
     </li>
     <li class="nav-item">
