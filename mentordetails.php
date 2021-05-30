@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $choice6 = stripcslashes($choice6);
   $description = stripcslashes($description);
   $sql = "INSERT INTO mentordetails (email, name, password, year, domain, choice2, choice3, choice4, choice5, choice6, description) VALUES ('$email', '$name', '$password', '$year', '$domain', '$choice2', '$choice3', '$choice4', '$choice5', '$choice6', '$description')";
-  $sql1 = "INSERT INTO user (username, mentoremail) VALUES ('$name', '$email')";
   if(mysqli_query($con, $sql))
   {
     echo "New user inserted";

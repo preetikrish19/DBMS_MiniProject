@@ -10,7 +10,6 @@ session_start();
     $department = $con->real_escape_string($_POST['department']);
     $_SESSION['name'] = $name;
     $sql = "INSERT INTO enrolldetails (name,email,year,password,department) VALUES ('$name', '$email', '$year', '$password', '$department')";
-    //$sql1="INSERT INTO user (username,studentemail) VALUES ('$name', '$email')";
   if($con->query($sql))
   {
     echo "<script>";

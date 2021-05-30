@@ -7,11 +7,11 @@ include('db.php');
 $i=1;
 $sql = "SELECT DISTINCT follow.uid, enrolldetails.name, enrolldetails.year, enrolldetails.email FROM follow INNER JOIN chat ON chat.student_id=follow.uid INNER JOIN enrolldetails ON chat.student_id=enrolldetails.uid  WHERE follow.mid=$_SESSION[mid] AND chat.mentor_id=$_SESSION[mid]";
 //$sql = "SELECT chatfollow.uid, enrolldetails.name, enrolldetails.email, enrolldetails.year FROM chatfollow INNER JOIN enrolldetails ON chatfollow.uid=enrolldetails.uid WHERE chat.mentor_id=3";
-$sql2 = "SELECT e.uid, e.name,e.email,e.year from enrolldetails e WHERE e.uid NOT IN( SELECT DISTINCT f.uid FROM follow f)";
-$result2 = mysqli_query($con, $sql2);
+//$sql2 = "SELECT e.uid, e.name,e.email,e.year from enrolldetails e WHERE e.uid NOT IN( SELECT DISTINCT f.uid FROM follow f)";
+//$result2 = mysqli_query($con, $sql2);
 $result = mysqli_query($con, $sql);
 $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$details2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+//$details2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 //print_r($details);
 echo "  ";
 //echo $_SESSION['mid'];chat.mentor_id, chat.student_id, follow.mid,
@@ -115,7 +115,7 @@ echo "  ";
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"><?php echo $detail['name']; ?></h5>
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
