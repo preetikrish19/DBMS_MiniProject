@@ -29,13 +29,13 @@ if ($file_type=="application/pdf" || $file_type=="image/gif" || $file_type=="ima
 
  {
 
- echo "The file ". basename( $_FILES['file']['name']). " is uploaded";
+ //echo "The file ". basename( $_FILES['file']['name']). " is uploaded";
 
  }
 
  else {
 
- echo "Problem uploading file";
+ //echo "Problem uploading file";
 
  }
 
@@ -43,14 +43,14 @@ if ($file_type=="application/pdf" || $file_type=="image/gif" || $file_type=="ima
 
 else {
 
- echo "You may only upload PDFs, JPEGs or GIF files.<br>";
+ //echo "You may only upload PDFs, JPEGs or GIF files.<br>";
 
 }
 
 $sql = "INSERT INTO mentorpost (mentor_id,post_description,Domains,file_name) VALUES ('$mentor_id','$post_description','$domains','$file_name')";
   if(mysqli_query($con, $sql))
   {
-    echo "posted";
+    echo "<script>alert('posted');</script>";
     echo "<script>window.location.href='post.php'</script>";
   }
   else{

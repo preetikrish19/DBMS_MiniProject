@@ -21,9 +21,9 @@ if(!($result = $con->query($query))){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body  class="bg-dark">
 <nav class="navbar navbar-expand-md navbar-light bg-dark">
-    <h2 class = "text-white" style = "margin-left:600px">Admin Console</h2>
+    <h2 class = "text-white" style = "margin-left:550px">Admin Console</h2>
     <a class="btn btn-danger" href="logout.php" style = "margin-left:560px">Logout</a>
 </nav>
 <table class="table table-dark table-striped">

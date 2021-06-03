@@ -17,7 +17,7 @@
     //$a1 = array_merge('$details', '$details2');
     //$a2 = array_merge('$details3', '$details4');
     //$detailal = array_merge('$a1', '$a2');
-    print_r($details2);
+    //print_r($details2);
 ?>
 <!DOCTYPE html>
 <html lang="en">

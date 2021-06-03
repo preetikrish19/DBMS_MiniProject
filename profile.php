@@ -239,7 +239,7 @@ Your Posts:
   <tbody>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
-      <td><a href="upload/<?php echo $detail['file_name']; ?>"><?php echo $detail['file_name']; ?></a></td>
+      <td><a href="upload/<?php echo $detail['file_name']; ?>">VIEW</a></td>
       <td><?php echo $detail['dname']; ?></td>
     </tr>
   </tbody>
